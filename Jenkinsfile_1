@@ -7,7 +7,7 @@ properties([[$class: 'JiraProjectProperty'], [$class: 'DatadogJobProperty', tagF
      stage("maven build-1"){
         sh label: '', script: 'ls'
     }
-    if("${branch_name}"=="main){
+    if("${branch_name}"=="main"){
      stage("docker-1"){
          sh label: '', script: 'ls'
         echo "docker"
