@@ -1,4 +1,5 @@
 node(){
+properties([[$class: 'JiraProjectProperty'], [$class: 'DatadogJobProperty', tagFile: '', tagProperties: ''], buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '', daysToKeepStr: '', numToKeepStr: '2')), gitLabConnection('gitlab'), parameters([string(defaultValue: 'main', description: 'Please enter the branch you want to build!!!', name: 'branch_name', trim: false)])])
     stage("clone-1"){
         checkout changelog: false, poll: false, scm: [$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/csenapati12/java-tomcat-maven-docker.git']]]
         echo "clone"
